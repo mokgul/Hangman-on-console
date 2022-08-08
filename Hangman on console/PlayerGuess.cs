@@ -19,9 +19,8 @@ namespace Hangman_on_console
             bool wordGuessed = false;
             int loseCounter = 0;
             List<char> wrongGuesses = new List<char>();
-
+            List<char> wrongGuessesLetters = new List<char>();
             
-
             while (!wordGuessed)
             {
                 Console.ForegroundColor = ConsoleColor.DarkCyan;
@@ -68,10 +67,10 @@ namespace Hangman_on_console
                 }
                 else
                 {
-                    loseCounter = WrongGuess(wrongGuesses, loseCounter, hiddenWord);
+                    loseCounter = WrongGuess(wrongGuesses, loseCounter, hiddenWord, wrongGuessesLetters, playerGuess);
                 }
 
-                if (loseCounter == 5)
+                if (loseCounter == 9)
                 {
                     Failed(currentWord);
                     break;
@@ -123,16 +122,22 @@ namespace Hangman_on_console
             Console.WriteLine();
         }
 
-        public static int WrongGuess(List<char> wrongGuesses, int loseCounter, char[] hiddenWord)
+        public static int WrongGuess(List<char> wrongGuesses, int loseCounter, char[] hiddenWord,List<char> wrongGuessesLetters, char playerGuess)
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Oops.. wrong guess, try again.");
             Console.ForegroundColor = ConsoleColor.White;
             wrongGuesses.Add('X');
+            if(!wrongGuessesLetters.Contains(playerGuess))
+            {
+                wrongGuessesLetters.Add(playerGuess);
+            }
             loseCounter++;
             Console.Write("Wrong guesses: ");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(string.Join(" ",wrongGuesses));
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(string.Join(" ",wrongGuessesLetters));
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(string.Join("",hiddenWord));
             Console.WriteLine();

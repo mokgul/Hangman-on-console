@@ -27,9 +27,26 @@ namespace Hangman_on_console
                         break;
                     case 2:
                         Console.Clear();
-                        PlayerGuess.GetListGuessedWords();
+                        Console.WriteLine("Hangman Game rules:");
+                        Console.WriteLine();
+                        Console.WriteLine("1.First you are asked to enter a name, needed for the highscore table.");
+                        Console.WriteLine();
+                        Console.WriteLine("2.A word is generated,your goal is to guess the word.");
+                        Console.WriteLine();
+                        Console.WriteLine("3.A valid input is considered a single character or a word equal to the full length of the word.");
+                        Console.WriteLine();
+                        Console.WriteLine("-- ex. \"game\". A valid input is either a single character or word with 4 letters");
+                        Console.WriteLine("-- Everything else is considered as invalid input !!!");
+                        Console.WriteLine();
+                        Console.WriteLine("4.For each word there are 9 attempts available.");
+                        Console.WriteLine();
+                        Console.WriteLine("5.Good luck !");
                         break;
                     case 3:
+                        Console.Clear();
+                        PlayerGuess.GetListGuessedWords();
+                        break;
+                    case 4:
                         Console.Clear();
                         PlayerGuess.GuessedWords.Clear();
                         Console.ForegroundColor = ConsoleColor.DarkCyan;
@@ -37,7 +54,7 @@ namespace Hangman_on_console
                         Console.WriteLine($"The list has been cleared !");
                         Console.ForegroundColor = ConsoleColor.White;
                         break;
-                    case 4:
+                    case 5:
                         Console.Clear();
                         Generate_word.Generate();
                         for (int i = 0; i < Generate_word.WordsInFile.Length; i++)
@@ -45,14 +62,14 @@ namespace Hangman_on_console
                             Console.WriteLine($"{i}. {Generate_word.WordsInFile[i]}");
                         }
                         break;
-                    case 5:
+                    case 6:
                         Console.Clear();
                         Highscores.UpdateFile();
                         Highscores.LoadFile();
                         Console.WriteLine(string.Join(Environment.NewLine,
                             Highscores.Entries.OrderByDescending(x => x.Value)));
                         break;
-                    case 6:
+                    case 7:
                         Console.Clear();
                         Console.WriteLine("Game made by @Mokgul");
                         Console.WriteLine();
@@ -94,7 +111,7 @@ namespace Hangman_on_console
             //char array, using it to save the guessed chars
             #endregion
             //CW just for the tests while making the game
-            //Console.WriteLine(currentWord);
+            Console.WriteLine(currentWord);
 
             PlayerGuess.PlayerGuessing(currentWord,word,hiddenWord,user);
             
@@ -122,11 +139,12 @@ namespace Hangman_on_console
             Console.WriteLine("\n                        MENU                        ");
             Console.WriteLine("\n +++++++++++++++++++++++++++++++++++++++++++++++++++");
             Console.WriteLine(" Start a new game                               :1 ");
-            Console.WriteLine(" List of guessed words                          :2 ");
-            Console.WriteLine(" Clear list of guessed words                    :3 ");
-            Console.WriteLine(" Get full list of available word                :4 ");
-            Console.WriteLine(" Highscores                                     :5 ");
-            Console.WriteLine(" Credits                                        :6 ");
+            Console.WriteLine(" Game Rules                                     :2 ");
+            Console.WriteLine(" List of guessed words                          :3 ");
+            Console.WriteLine(" Clear list of guessed words                    :4 ");
+            Console.WriteLine(" Get full list of available word                :5 ");
+            Console.WriteLine(" Highscores                                     :6 ");
+            Console.WriteLine(" Credits                                        :7 ");
             Console.WriteLine(" Exit the program                               :0 ");
             Console.WriteLine(" +++++++++++++++++++++++++++++++++++++++++++++++++++\n");
             Console.Write(" Which program would you like to access?: ");

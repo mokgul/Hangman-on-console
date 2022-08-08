@@ -26,6 +26,10 @@ namespace Hangman_on_console
                     {
                         Entries.Add(name, score);
                     }
+                    else
+                    {
+                        Entries[name] = score;
+                    }
                 }
             }
         }
