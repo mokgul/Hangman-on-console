@@ -135,7 +135,9 @@ namespace Hangman_on_console
             loseCounter++;
             Console.Write("Wrong guesses: ");
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(string.Join(" ",wrongGuesses));
+            Console.Write(string.Join(" ",wrongGuesses));
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine($",  {9 - loseCounter} attempts left.");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(string.Join(" ",wrongGuessesLetters));
             Console.ForegroundColor = ConsoleColor.White;

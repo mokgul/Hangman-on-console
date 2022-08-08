@@ -111,7 +111,7 @@ namespace Hangman_on_console
             //char array, using it to save the guessed chars
             #endregion
             //CW just for the tests while making the game
-            Console.WriteLine(currentWord);
+            //Console.WriteLine(currentWord);
 
             PlayerGuess.PlayerGuessing(currentWord,word,hiddenWord,user);
             
@@ -142,7 +142,7 @@ namespace Hangman_on_console
             Console.WriteLine(" Game Rules                                     :2 ");
             Console.WriteLine(" List of guessed words                          :3 ");
             Console.WriteLine(" Clear list of guessed words                    :4 ");
-            Console.WriteLine(" Get full list of available word                :5 ");
+            Console.WriteLine(" Get full list of available words               :5 ");
             Console.WriteLine(" Highscores                                     :6 ");
             Console.WriteLine(" Credits                                        :7 ");
             Console.WriteLine(" Exit the program                               :0 ");
