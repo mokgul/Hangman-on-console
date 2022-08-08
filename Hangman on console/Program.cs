@@ -81,7 +81,7 @@ namespace Hangman_on_console
                         Console.WriteLine();
                         Console.WriteLine("Credits to: ");
                         Console.WriteLine();
-                        Console.WriteLine("Kaiser DMC - the menu layout");
+                        Console.WriteLine("Kaiser DMC - menu layout, game rules and some other ideas");
                         Console.WriteLine();
                         Console.WriteLine("Thank you for playing !");
                         break;
