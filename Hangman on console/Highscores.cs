@@ -22,7 +22,10 @@ namespace Hangman_on_console
                     string[] item = allEntries[i].Split(new char[] { '[', ',', ']' }, StringSplitOptions.RemoveEmptyEntries);
                     string name = item[0];
                     int score = int.Parse(item[1]);
-                    Entries.Add(name, score);
+                    if (!Entries.ContainsKey(name))
+                    {
+                        Entries.Add(name, score);
+                    }
                 }
             }
         }
@@ -31,9 +34,12 @@ namespace Hangman_on_console
             
             using(StreamWriter sw = File.AppendText("Highscore.txt"))
             {
-                foreach (var item in PlayerGuess.Highscore)
+                if(PlayerGuess.Highscore != null)
                 {
-                    sw.WriteLine(item);
+                    foreach (var item in PlayerGuess.Highscore)
+                    {
+                        sw.WriteLine(item);
+                    }
                 }
             };
         }
