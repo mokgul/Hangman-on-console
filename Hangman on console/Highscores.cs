@@ -7,6 +7,7 @@ namespace Hangman_on_console
 {
     public class Highscores
     {
+        //comments
         public Highscores()
         {
             Entries = new Dictionary<string, int>();
