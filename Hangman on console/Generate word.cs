@@ -7,7 +7,9 @@ namespace Hangman_on_console
 {
     public class Generate_word
     {
+        // Words in file
         public static string[] WordsInFile { get; set; }
+
         public static string Generate()
         {
             string randomWord = "";
